@@ -10,8 +10,8 @@ class Controller {
         $this->container = $container;
     }
 
-    public function render (ResponseInterface $response, $file) {
-        $this->container->view->render($response, $file);
+    public function render (ResponseInterface $response, $file, $args = []) {
+        $this->container->view->render($response, $file, $args);
     }
 
     public function flash ($msg, $type = 'success') {
