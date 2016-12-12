@@ -24,31 +24,17 @@ class CategoriesController extends Controller {
                 $error = true;
                 $this->flash('Veuillez entrer un nom', 'errors.name');
             }
-            if ( Validator::notEmpty()->validate($request->getParam('number_days')) ){
-                $old['number_days'] = $request->getParam('number_days');
-            } else {
-                $error = true;
-                $this->flash('Veuillez entrer un nombre de jour', 'errors.number_days');
-            }
             if ( Validator::notEmpty()->validate($request->getParam('postponed_days')) ) {
                 $old['postponed_days'] = $request->getParam('postponed_days');
             } else {
                 $error = true;
                 $this->flash('Veuillez entrer un nombre de jour pouvant être reporter', 'errors.postponed_days');
             }
-            if ( Validator::notEmpty()->validate($request->getParam('validity_days')) ) {
-                $old['validity_days'] = $request->getParam('validity_days');
-            } else {
-                $error = true;
-                $this->flash('Veuillez entrer un nombre de jour de validité du congé', 'errors.validity_days');
-            }
             if (!$error) {
                 $category = new Category();
 
                 $category->name = $request->getParam('name');
-                $category->number_days = $request->getParam('number_days');
                 $category->postponed_days = $request->getParam('postponed_days');
-                $category->validity_days = $request->getParam('validity_days');
                 if ($category->save()) {
                     $this->flash('Information bien enregistrée');
                     $old = [];
