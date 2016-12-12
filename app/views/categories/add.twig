@@ -11,6 +11,7 @@
     {% endif %}
 
     <form action="{{ path_for('categories/add') }}" method="post">
+
         <div class="form-group{% if flash('errors.name') %} has-error{% endif %}">
             <label for="categoriesInputName">Nom catégorie</label>
             <input type="text" class="form-control" id="categoriesInputName" placeholder="Nom" name="name" value="{{ old.name }}">

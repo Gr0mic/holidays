@@ -22,6 +22,10 @@ $container[App\WidgetController::class] = function ($container) {
     return new \App\WidgetController($view, $logger, $table);
 };
 
+$container['csrf'] = function () {
+    return new \Slim\Csrf\Guard;
+};
+
 $container['view'] = function ($container) {
     $settings = $container->get('settings');
     $view = new \Slim\Views\Twig($settings['view']['template_path'], $settings['view']['twig']);

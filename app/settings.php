@@ -15,8 +15,7 @@ return [
             'template_path' => __DIR__ . '/Views',
             'twig' => [
                 'cache' => __DIR__ . '/../tmp/cache/twig',
-                'debug' => true,
-                'auto_reload' => true,
+                'debug' => true
             ],
         ],
 
